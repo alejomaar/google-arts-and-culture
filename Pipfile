@@ -7,6 +7,8 @@ name = "pypi"
 black = {extras = ["jupyter"], version = "*"}
 flake8 = "*"
 ipykernel = "*"
+pandas = "*"
+selenium = "*"
 
 [dev-packages]
 src = {editable = true, path = "."}
