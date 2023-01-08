@@ -5,7 +5,7 @@ from selenium import webdriver
 from typing import Union
 
 
-class ScrapingSection():
+class ScrapingPictures():
     def __init__(self,driver_path):
         self.driver = webdriver.Chrome(executable_path = driver_path)
         self.delay = {
