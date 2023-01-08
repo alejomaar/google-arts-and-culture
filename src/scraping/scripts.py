@@ -13,14 +13,6 @@ class Scripts:
     return script()
     """
     
-    get_pictures_links:str = """return [...document.querySelectorAll('.DuHQbc')].map(contain => contain?.firstElementChild.href) """
-    
-    get_pictures_images:str = """"
-    var containers = [...document.querySelectorAll('.DuHQbc')];
-    var img_elements= containers.map(contain => contain.firstElementChild);
-    return img_elements.map(a =>window.getComputedStyle(a, false).backgroundImage)
-    """
-    
     get_picture_info:str = """
     var details = [...document.querySelector(".ve9nKb").querySelectorAll('li')];
     var museum = document.querySelector(".To7WBf")?.childNodes?.[0]?.textContent;

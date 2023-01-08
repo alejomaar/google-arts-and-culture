@@ -4,37 +4,23 @@ from src.scraping.scripts import scripts
 from selenium import webdriver
 
 
-class ScrapingPictures():
-    def __init__(self,driver_path,color_param:str) -> None:
+class ScrapingPictureInfo():
+    def __init__(self,driver_path,picture_page:str) -> None:
         self.driver = webdriver.Chrome(executable_path = driver_path)
-        self.delay = {
-            "scroll_down": 3,
-            "start": 3,
-            "end": 3
-        }
-        self.color_param = color_param
-        
+        self.picture_page = picture_page
+        self.delay = 3        
                 
     def open(self) -> None:
-        base_url = 'https://artsandculture.google.com/color'
-        target_page = f'{base_url}?col={self.color_param}'
+        target_page = self.picture_page
         self.driver.get(target_page)
-        print('Open page section {}'.format(self.color_param))
-        
-    def scroll_down(self,scrolls:int) -> None:
-        for j in range(0, scrolls):
-            self.driver.execute_script(scripts.scroll_down)
-            time.sleep(self.delay['scroll_down']) 
-        print('Finish scrolling down')    
-        
-    def scrape(self) -> pd.DataFrame:                
+          
+    def scrape(self) -> dict:                
         try:
-            data = self.driver.execute_script(scripts.pictures_info)
-            df_pictures = pd.DataFrame(data)
-            df_pictures['color'] = self.color_param
-            return df_pictures
+            data = self.driver.execute_script(scripts.get_picture_info)
+            info = {"page":self.picture_page,"data":data}
+            return info
         except: 
-            print('Something went wrong in: ',self.color_param)
-            return pd.DataFrame(columns=['image','page','color'])
+            print('Something went wrong in: ',self.picture_page)
+            return {"page":"","data":""}
 
         
