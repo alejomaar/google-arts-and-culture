@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
-#pipenv run python setup.py install
-#pipenv run python setup.py build
+#pipenv run pip install .
+#pipenv run pip uninstall src
 setup(
     name='src',
     packages=find_packages(),
