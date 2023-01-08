@@ -1,9 +1,21 @@
 class Scripts:
-    get_pictures_links:str = """
-    var containers = [...document.querySelectorAll('.DuHQbc')];
-    var img_elements = containers.map(contain => contain.firstElementChild);
-    return img_elements.map(a => a.href)
+    scroll_down:str = """
+    "window.scrollTo(0, document.body.scrollHeight);"
     """
+    
+    pictures_info:str = """
+    const script = () =>{
+        const containers = [...document.querySelectorAll('.DuHQbc')];
+        const img_elements= containers.map(contain => contain.firstElementChild);
+        return img_elements.map(img =>({
+            page:img.href,
+            image: window.getComputedStyle(img, false).backgroundImage
+        }))  
+    };
+    return script()
+    """
+    
+    get_pictures_links:str = """return [...document.querySelectorAll('.DuHQbc')].map(contain => contain?.firstElementChild.href) """
     
     get_pictures_images:str = """"
     var containers = [...document.querySelectorAll('.DuHQbc')];

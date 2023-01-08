@@ -9,9 +9,11 @@ flake8 = "*"
 ipykernel = "*"
 pandas = "*"
 selenium = "*"
+pyprojroot = "*"
 
 [dev-packages]
 src = {editable = true, path = "."}
+ipykernel = "*"
 
 [requires]
 python_version = "3.9"
