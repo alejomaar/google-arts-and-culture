@@ -1,7 +1,5 @@
 class Scripts:
-    scroll_down:str = """
-    "window.scrollTo(0, document.body.scrollHeight);"
-    """
+    scroll_down:str = "window.scrollTo(0, document.body.scrollHeight);"
     
     pictures_info:str = """
     const script = () =>{
