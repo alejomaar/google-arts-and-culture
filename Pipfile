@@ -11,6 +11,8 @@ pandas = "*"
 selenium = "*"
 pyprojroot = "*"
 requests = "*"
+opencv-python = "*"
+matplotlib = "*"
 
 [dev-packages]
 src = {editable = true, path = "."}
