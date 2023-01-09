@@ -13,6 +13,8 @@ pyprojroot = "*"
 requests = "*"
 opencv-python = "*"
 matplotlib = "*"
+install = "*"
+scikit-learn = "*"
 
 [dev-packages]
 src = {editable = true, path = "."}
