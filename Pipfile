@@ -4,7 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-black = {extras = ["jupyter"], version = "*"}
 flake8 = "*"
 ipykernel = "*"
 pandas = "*"
@@ -16,10 +15,10 @@ matplotlib = "*"
 install = "*"
 scikit-learn = "*"
 xgboost = "*"
-
-[dev-packages]
-src = {editable = true, path = "."}
 ipykernel = "*"
 
 [requires]
 python_version = "3.9"
+
+
+
