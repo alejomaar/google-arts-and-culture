@@ -15,10 +15,9 @@ matplotlib = "*"
 install = "*"
 scikit-learn = "*"
 xgboost = "*"
-ipykernel = "*"
+seaborn = "*"
+
+[dev-packages]
 
 [requires]
 python_version = "3.9"
-
-
-
