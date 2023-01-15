@@ -1,5 +1,5 @@
 from setuptools import find_packages, setup
-#pipenv run pip install .
+#pipenv install -e .
 #pipenv run pip uninstall src -y
 setup(
     name='src',

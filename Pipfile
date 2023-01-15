@@ -10,12 +10,15 @@ pandas = "*"
 selenium = "*"
 pyprojroot = "*"
 requests = "*"
-opencv-python = "*"
 matplotlib = "*"
-install = "*"
 scikit-learn = "*"
 xgboost = "*"
 seaborn = "*"
+src = {path = "."}
+uvicorn = {extras = ["standard"], version = "*"}
+opencv-python-headless = "*"
+fastapi = "*"
+python-multipart = "*"
 
 [dev-packages]
 
