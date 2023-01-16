@@ -4,23 +4,24 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-flake8 = "*"
-ipykernel = "*"
-pandas = "*"
-selenium = "*"
 pyprojroot = "*"
-requests = "*"
-matplotlib = "*"
-scikit-learn = "*"
-xgboost = "*"
-seaborn = "*"
-src = {path = "."}
 uvicorn = {extras = ["standard"], version = "*"}
 opencv-python-headless = "*"
 fastapi = "*"
 python-multipart = "*"
+joblib = "*"
+scikit-learn = "*"
 
 [dev-packages]
+flake8 = "*"
+ipykernel = "*"
+pandas = "*"
+selenium = "*"
+requests = "*"
+matplotlib = "*"
+xgboost = "*"
+seaborn = "*"
+src = {path = "."}
 
 [requires]
 python_version = "3.9"
