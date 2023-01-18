@@ -1,5 +1,6 @@
 # google-art-and-culture
 
+```bash
 ├── application
 │ ├── routers <- Separate API into routers
 │ │ ├── classify.py <- API for image classification
@@ -45,3 +46,5 @@
 │ │ └── scripts.py
 │ ├── visualization <- Scripts to create exploratory and results oriented visualizations
 │ │ ├── imgshow.py
+
+```
