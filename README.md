@@ -2,19 +2,18 @@
 
 ### Problem description
 
-Este proyecto busca raspar las pinturas artisticas en la pagina de Google Art / Culture
-para posteriormente ingresarlas en un algoritmo de clasificacion. Cada una de estas pinturas tiene varios metadatos; el color es la variable objetivo. dentro de los cuales encontramos algunas categorias.
+La pagina Google Art and Culture es un repositorio de obras artisticas, en diferentes momentos del tiempo,cada pintura de estas posee atributos, como su localizacion, fecha de creacion. La variable de interes en este caso fue el color de cada obra entre las cuales se encuentran:
 
 - Rojo - Verde - Azul - negro - Blanco
 
-El proposito general de este proyecto es, como desde 0, se pueden extraer imagenes de una pagina web, categorizarlas, extraer caracteristicas de ellas y finalmente contruir un modelo de ML que pueda clasificarlas. Este proyecto tomado como un microservicio escalable de ML , con su entorno virtual, dockerizado y desplegado en la nube.
+Este proyecto es multiproposito, y en general busca como generar un proyecto de data desde 0. Pasando desde el webscraping de imagenes, analisis, extraccion de caracterisitcas, construir modelo de supervisado de clasificacion y finalmente construccion de miscroservicio y despliege en AWS.
 
 ### Resultados
 
 - Se extrayeron 18000 imagenes con procesamiento paralelo
 - Extraer un vector de 18 caracteristicas por cada imagen.
 - EDA de las catacteristicas de cada categoria
-- Model selection, hyperparameter tunning, feature importance and export model.
+- Modelo SVM 88% de accuracy, incluye(Model selection, hyperparameter tunning, feature importance and export model.)
 - Create and Containerizer a FastAPI app for serving ML model (Load a image and classifiy its color)
 - Deploy to cloud
 
@@ -22,8 +21,9 @@ El proposito general de este proyecto es, como desde 0, se pueden extraer imagen
 
 - `webscraping`: Python (Pandas, Selenium, Multiprocessing), Javascript.
 - `eda`: Python (Pandas, matplotlib, seaborn)
-- `models`: Python (Sklearn,opencv,numpy)
-- `deploy`: Python (FastAPI,OpenCV) Docker,AWS
+- `feature extraction`: Python (Opencv,Numpy)
+- `models`: Sklearn including logistic Regression,SVM, Random Forest
+- `deploy`: Python (FastAPI) Docker,AWS
 
 #Folder structure
 
