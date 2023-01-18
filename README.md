@@ -5,112 +5,43 @@
 │ │ ├── classify.py <- API for image classification
 │ ├── services <- Business logic
 │ │ ├── img_classify.py <- Processing image for classify it color
-│ └── utility <-
-│ │ ├── conversion.py
-├── build
-│ ├── bdist.linux-x86_64
-│ └── lib
-│ └── src
+│ └── utility <- Utility functions
+│ │ ├── conversion.py <- Convert raw bytes into a opencv/numpy image
 ├── data
-│ ├── external
-│ ├── interim
+│ ├── external <- Data from third party
+│ ├── interim <- Intermediate data that has been transformed.
 │ │ └── pictures.csv
-│ ├── processed
+│ ├── processed <- The final, canonical data sets for modeling.
 │ │ ├── img
 │ │ └── pictures.csv
-│ └── raw
-├── dockerfile
+│ └── raw <- The original, immutable data dump.
+├── dockerfile <- file for build docker image
 ├── LICENSE
-├── main.py
-├── models
-│ ├── scaler.joblib
-│ └── svm_classifier.joblib
-├── notebooks
-│ ├── 01-scraping.ipynb
-│ ├── 02-features.ipynb
-│ ├── 03-eda.ipynb
-│ └── 04-models.ipynb
-├── Pipfile
-├── Pipfile.lock
-├── **pycache**
-│ └── main.cpython-39.pyc
-├── README.md
-├── references
+├── main.py <- Service entry point
+├── models <- Trained and serialized models, model predictions, or model summaries
+│ ├── scaler.joblib <- Feature Scaler
+│ └── svm_classifier.joblib <- Image Classifier
+├── notebooks <- Jupyter notebooks. Naming convention is a number (for ordering)
+│ ├── 01-scraping.ipynb <- Scraping Data & images
+│ ├── 02-features.ipynb <- Feature Extraction from raw images
+│ ├── 03-eda.ipynb <- EDA
+│ └── 04-models.ipynb <- Build different models
+├── Pipfile <- Virtual Environment file
+├── Pipfile.lock <- Virtual Environment file
+├── README.md <- The top-level README for developers
+├── references <- Data dictionaries, manuals, and all other explanatory materials
 │ └── picture.jpg
-├── reports
-│ └── figures
-├── requirements.txt
-├── setup.py
+├── requirements.txt <- The requirements file for reproducing packages used in this project
+├── setup.py <- makes project pip installable (pip install -e .) so src can be imported
 ├── src
-│ ├── features
+│ ├── features <- Scripts to turn raw data into features for modeling
 │ │ ├── extract_features.py
-│ │ └── **init**.py
-│ ├── **init**.py
-│ ├── models
-│ │ ├── **init**.py
+│ ├── models <- Scripts to train models and then use trained models to make
 │ │ ├── predict_model.py
 │ │ └── train_model.py
-│ ├── scraping
+│ ├── scraping <- Scripts for scraping images and data
 │ │ ├── get_img.py
-│ │ ├── **init**.py
 │ │ ├── scraping_pictures.py
 │ │ └── scripts.py
-│ └── visualization
-│ ├── imgshow.py
-│ └── **init**.py
-└── src.egg-info
-├── dependency_links.txt
-├── PKG-INFO
-├── SOURCES.txt
-└── top_level.txt
-
-## Project Organization
-
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
-    ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
-    │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
-    │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
-
----
-
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+│ ├── visualization <- Scripts to create exploratory and results oriented visualizations
+│ │ ├── imgshow.py
