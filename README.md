@@ -77,7 +77,7 @@ This project is multipurpose, and in general it seeks how to generate a data pro
 - `models`: Sklearn including logistic Regression,SVM, Random Forest
 - `deploy`: Python (FastAPI), Docker,AWS
 
-#Folder structure
+### Folder structure
 
 ```bash
 ├── application
