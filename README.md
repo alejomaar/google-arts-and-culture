@@ -1,22 +1,22 @@
 # Google Art & Culture Image Classification
 
-### Problem description
+## 1) Problem description
 
-La pagina Google Art and Culture es un repositorio de obras artisticas, en diferentes momentos del tiempo,cada pintura de estas posee atributos, como su localizacion, fecha de creacion. La variable de interes en este caso fue el color de cada obra entre las cuales se encuentran:
+The Google Art and Culture page is a repository of artistic works, at different moments in time, each painting has attributes, such as its location, date of creation. The variable of interest in this case was the color of each work, among which are:
 
-- Rojo - Verde - Azul - negro - Blanco
+`BLACK` `BROWN` `TEAL` `GREEN` `BLUE` `WHITE` `RED` `YELLOW` `ORANGE` `PURPLE` `PINK`
 
-Este proyecto es multiproposito, y en general busca como generar un proyecto de data desde 0. Pasando desde el webscraping de imagenes, analisis, extraccion de caracterisitcas, construir modelo de supervisado de clasificacion y finalmente construccion de miscroservicio y despliege en AWS.
+This project is multipurpose, and in general it seeks how to generate a data project from scratch. Going from image webscraping, analysis, feature extraction, building a classification supervised model and finally building a microservice.
 
-### Resultados
+### 2) Results
 
 #### Webscraping
 
-- Scrape 18000 images using multiprocessing in python
+- Scraping 16311 images using multiprocessing in python
 
 #### Feature Extraction
 
-- Extract a vector of 18 characteristics for each image. The characteristics compose the mean and td of image in the color channels (RGB,HSV,LAB)
+- Extract a vector of 18 features for each image. The characteristics are based on the average and std of image in the color channels (RGB,HSV,LAB)
 
 #### EDA
 
@@ -37,7 +37,7 @@ Este proyecto es multiproposito, y en general busca como generar un proyecto de 
 | {'max_depth': 25, 'n_estimators': 170} |       0.836        |     0.006      |       random_forest |
 | {'max_depth': 100, 'n_estimators': 50} |       0.782        |     0.006      |   gradient_boosting |
 
-- Select the best model (SVM with a 88% +-0.2% of accuracy)
+- Select the best model (SVM with a 87.8% +-0.2% of accuracy)
 - Feature Importance (Top 5)
 
   | feature    | importance |
@@ -81,7 +81,7 @@ Este proyecto es multiproposito, y en general busca como generar un proyecto de 
 │ ├── routers <- Separate API into routers
 │ │ ├── classify.py <- API for image classification
 │ ├── services <- Business logic
-│ │ ├── img_classify.py <- Processing image for classify it color
+│ │ ├── img_classify.py <- Processing the image to classify by color.
 │ └── utility <- Utility functions
 │ │ ├── conversion.py <- Convert raw bytes into a opencv/numpy image
 ├── data
@@ -90,7 +90,7 @@ Este proyecto es multiproposito, y en general busca como generar un proyecto de 
 │ │ └── pictures.csv
 │ ├── processed <- The final, canonical data sets for modeling.
 │ │ ├── img
-│ │ └── pictures.csv
+│ │ └── pictures.csv <- Final dataset.
 │ └── raw <- The original, immutable data dump.
 ├── dockerfile <- file for build docker image
 ├── LICENSE
@@ -124,3 +124,34 @@ Este proyecto es multiproposito, y en general busca como generar un proyecto de 
 │ │ ├── imgshow.py
 
 ```
+
+### 3) Installation
+
+- Prerequisites
+  In order to manage the dependencies of the project you could:
+
+* `pip install pipenv`
+* Have `docker` in your computer
+
+- Steps
+
+1. Run: `pipenv install`
+2. Run: `pipenv shell`
+3. Run: `docker build -t google-images-classifier .`
+
+### 4) Use this project
+
+- If you want see the scraping, analysis and model selection process:
+  Check `notebooks` folder
+
+- If you want retrain the model:
+  Run `python -m src.models.train_model`
+
+- If you want run server
+
+  1. Run `uvicorn main:app --host 0.0.0.0 --port 9797 --reload`
+  2. Check the docs in `http://localhost:9797/docs`
+
+- If you want run the container
+  1. Run: `docker run -it -p 9797:9797 google-images-classifier`
+  2. Check the docs in `http://localhost:9797/docs`

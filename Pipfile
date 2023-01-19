@@ -22,6 +22,7 @@ matplotlib = "*"
 xgboost = "*"
 seaborn = "*"
 src = {path = "."}
+awsebcli = "*"
 
 [requires]
 python_version = "3.9"
