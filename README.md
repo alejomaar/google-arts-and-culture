@@ -2,7 +2,7 @@
 
 ## 1) Problem description
 
-The Google Art and Culture page is a repository of artistic works, at different moments in time, each painting has attributes, such as its location, date of creation. The variable of interest in this case was the color of each work, among which are:
+The [Google Art and Culture page](https://artsandculture.google.com/) is a page of artistic works, at different moments in time, each painting has attributes, such as its location, date of creation. The variable of interest in this case was the color of each picture, among which are:
 
 `BLACK` `BROWN` `TEAL` `GREEN` `BLUE` `WHITE` `RED` `YELLOW` `ORANGE` `PURPLE` `PINK`
 
@@ -13,6 +13,8 @@ This project is multipurpose, and in general it seeks how to generate a data pro
 #### Webscraping
 
 - Scraping 16311 images using multiprocessing in python
+- Dataset: [Dataset](data/processed/pictures.csv)
+- Images: [Repository](https://drive.google.com/file/d/104F9KvShLjM2HJd8y-4tU8HqUFAFJC2G/view?usp=sharing) (Optional: Download into data/processed/img folder)
 
 #### Feature Extraction
 
@@ -27,7 +29,7 @@ This project is multipurpose, and in general it seeks how to generate a data pro
 #### Model Selection
 
 - Feature Scaling (Standard Scaling)
-- Try different models including hyperparameter tuning and cross validation (SVM, Logistic Regression)
+- Try different models including hyperparameter tuning and cross validation
 
 | params                                 | mean_test_accuracy | std_test_score |          classifier |
 | :------------------------------------- | :----------------: | :------------: | ------------------: |
@@ -55,18 +57,17 @@ This project is multipurpose, and in general it seeks how to generate a data pro
 
 ![confusion_matrix](references/confusion_matrix.png?raw=true)
 
-`Note 1`: Purple,Blue and Teal colors tends to be the highest errors. However, this color are similiar, so, this mismatch classifications in not so bad.
+`Note 1`: Purple, blue, and teal colors tend to have the highest errors. However, these colors are similar, so these mismatched classifications aren't too bad.
 
-`Note 2`: Classify Pink is actualy the worst class (79.2%) tends to confuse with differents classes.
+`Note 2`: Classifying pink is actually the worst class (79.2%) tends to get confused with different classes.
 
-`Note 3`: White and Black are the most accurate classes. Maybe because this are neutral colors and concecuently more easy for machine classfication.
+`Note 3`: Black and White are the most accurate classes. Perhaps because they are neutral colors and, consequently, easier to classify by the algorithm.
 
 #### Deploy
 
 - Export best model and scaler as .joblib file (Check models folder)
-- Conteineraize app with Docker (More details in `Instalation Section`)
+- Containerize app with Docker (More details in `Instalation Section`)
 - Use FastAPI for serve models as microservice
-- Deploy to AWS Beanstalk.
 
 ### Tecnologies
 
