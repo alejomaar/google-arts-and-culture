@@ -158,3 +158,8 @@ This project is multipurpose, and in general it seeks how to generate a data pro
 - If you want run the container
   1. Run: `docker run -it -p 9797:9797 google-images-classifier`
   2. Check the docs in `http://localhost:9797/docs`
+
+### Contributors
+
+- [Manuel Alejandro Aponte](https://www.linkedin.com/in/manuelalejandroaponte/)
+- [Cristian Camilo Beltran](https://www.linkedin.com/in/cristian-beltran-velosa-897762204/)
