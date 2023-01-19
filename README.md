@@ -10,12 +10,61 @@ Este proyecto es multiproposito, y en general busca como generar un proyecto de 
 
 ### Resultados
 
-- Se extrayeron 18000 imagenes con procesamiento paralelo
-- Extraer un vector de 18 caracteristicas por cada imagen.
-- EDA de las catacteristicas de cada categoria
-- Modelo SVM 88% de accuracy, incluye(Model selection, hyperparameter tunning, feature importance and export model.)
-- Create and Containerizer a FastAPI app for serving ML model (Load a image and classifiy its color)
-- Deploy to cloud
+#### Webscraping
+
+- Scrape 18000 images using multiprocessing in python
+
+#### Feature Extraction
+
+- Extract a vector of 18 characteristics for each image. The characteristics compose the mean and td of image in the color channels (RGB,HSV,LAB)
+
+#### EDA
+
+- Perform some visualization about the features and the target variable.
+- Check similarities and differences between the features.
+- Verify if dataset is imbalanced
+
+#### Model Selection
+
+- Feature Scaling (Standard Scaling)
+- Try different models including hyperparameter tuning and cross validation (SVM, Logistic Regression)
+
+| params                                 | mean_test_accuracy | std_test_score |          classifier |
+| :------------------------------------- | :----------------: | :------------: | ------------------: |
+| { 'C': 100, 'gamma': 0.01}             |       0.878        |     0.002      |                 svm |
+| {' alpha': 1, 'hidden...': 400, ...}   |       0.874        |     0.004      |      neural_network |
+| {'C': 15}                              |       0.862        |     0.004      | logistic_regression |
+| {'max_depth': 25, 'n_estimators': 170} |       0.836        |     0.006      |       random_forest |
+| {'max_depth': 100, 'n_estimators': 50} |       0.782        |     0.006      |   gradient_boosting |
+
+- Select the best model (SVM with a 88% +-0.2% of accuracy)
+- Feature Importance (Top 5)
+
+  | feature    | importance |
+  | :--------- | ---------: |
+  | b_lab_mean |   0.277048 |
+  | a_lab_mean |   0.256891 |
+  | s_hsv_mean |   0.172290 |
+  | a_lab_std  |   0.131976 |
+  | v_hsv_mean |   0.130603 |
+  | r_bgr_mean |   0.092692 |
+
+`Note`: HSV and LAB color spaces looks be the most important features for classifing the color of a image
+
+- Confusion Matrix
+
+[confusion_matrix](references/confusion_matrix.png)
+
+`Note 1`: Purple,Blue and Teal colors tends to be the highest errors. However, this color are similiar, so, this mismatch classifications in not so bad.
+`Note 2`: Classify Pink is actualy the worst class (79.2%) tends to confuse with differents classes.
+`Note 3`: White and Black are the most accurate classes. Maybe because this are neutral colors and concecuently more easy for machine classfication.
+
+#### Deploy
+
+- Export best model and scaler as .joblib file (Check models folder)
+- Conteineraize app with Docker (More details in `Instalation Section`)
+- Use FastAPI for serve models as microservice
+- Deploy to AWS Beanstalk.
 
 ### Tecnologies
 
@@ -23,7 +72,7 @@ Este proyecto es multiproposito, y en general busca como generar un proyecto de 
 - `eda`: Python (Pandas, matplotlib, seaborn)
 - `feature extraction`: Python (Opencv,Numpy)
 - `models`: Sklearn including logistic Regression,SVM, Random Forest
-- `deploy`: Python (FastAPI) Docker,AWS
+- `deploy`: Python (FastAPI), Docker,AWS
 
 #Folder structure
 
