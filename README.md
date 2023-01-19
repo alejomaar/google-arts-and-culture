@@ -53,10 +53,12 @@ This project is multipurpose, and in general it seeks how to generate a data pro
 
 - Confusion Matrix
 
-[confusion_matrix](references/confusion_matrix.png)
+![confusion_matrix](references/confusion_matrix.png?raw=true)
 
 `Note 1`: Purple,Blue and Teal colors tends to be the highest errors. However, this color are similiar, so, this mismatch classifications in not so bad.
+
 `Note 2`: Classify Pink is actualy the worst class (79.2%) tends to confuse with differents classes.
+
 `Note 3`: White and Black are the most accurate classes. Maybe because this are neutral colors and concecuently more easy for machine classfication.
 
 #### Deploy
