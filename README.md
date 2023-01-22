@@ -63,7 +63,7 @@ This project is multipurpose, and in general it seeks how to generate a data pro
 
 `Note 3`: Black and White are the most accurate classes. Perhaps because they are neutral colors and, consequently, easier to classify by the algorithm.
 
-#### Deploy
+#### Model Serving
 
 - Export best model and scaler as .joblib file (Check models folder)
 - Containerize app with Docker (More details in `Instalation Section`)
@@ -74,7 +74,7 @@ This project is multipurpose, and in general it seeks how to generate a data pro
 - `webscraping`: Python (Pandas, Selenium, Multiprocessing), Javascript.
 - `eda`: Python (Pandas, matplotlib, seaborn)
 - `feature extraction`: Python (Opencv,Numpy)
-- `models`: Sklearn including logistic Regression,SVM, Random Forest
+- `models`: Python (Sklearn)  
 - `deploy`: Python (FastAPI), Docker,AWS
 
 ### Folder structure
