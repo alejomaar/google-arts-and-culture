@@ -39,7 +39,7 @@ This project is multipurpose, and in general it seeks how to generate a data pro
 | {'max_depth': 25, 'n_estimators': 170} |       0.836        |     0.006      |       random_forest |
 | {'max_depth': 100, 'n_estimators': 50} |       0.782        |     0.006      |   gradient_boosting |
 
-- Select the best model (SVM with a 87.8% +-0.2% of accuracy)
+- Select the best model (`SVM` with a 87.8% +-0.2% of accuracy)
 - Feature Importance (Top 5)
 
   | feature    | importance |
@@ -51,7 +51,7 @@ This project is multipurpose, and in general it seeks how to generate a data pro
   | v_hsv_mean |   0.130603 |
   | r_bgr_mean |   0.092692 |
 
-`Note`: HSV and LAB color spaces looks be the most important features for classifing the color of a image
+`Note`: `HSV` and `LAB` color spaces looks be the most important features for classifing the color of a image
 
 - Confusion Matrix
 
